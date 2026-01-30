@@ -1,0 +1,22 @@
+# Node / Next.js
+node_modules/
+.next/
+.next-standalone/
+.vercel/
+.env*
+*.local
+coverage/
+dist/
+build/
+*.log
+.DS_Store
+# Turbo / cache
+.vscode/
+.idea/
+.cache/
+.eslintcache
+
+# pnpm
+
+# misc
+*.swp
