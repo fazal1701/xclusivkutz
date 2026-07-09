@@ -8,8 +8,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel"
 import { BOOKSY_URL, GOOGLE_REVIEWS, type GoogleReview } from "@/lib/site-data"
@@ -23,7 +21,7 @@ function ReviewCard({ review }: { review: GoogleReview }) {
     .toUpperCase()
 
   return (
-    <div className="flex h-full flex-col rounded-none border border-neutral-800 bg-neutral-950 p-6 text-white">
+    <div className="flex h-full flex-col rounded-xl bg-neutral-950 p-6 text-white">
       <div className="mb-4 flex gap-0.5">
         {Array.from({ length: review.rating }).map((_, i) => (
           <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
@@ -52,18 +50,14 @@ export function ReviewsCarousel({ reviews = GOOGLE_REVIEWS }: { reviews?: Google
     if (!api) return
 
     const interval = setInterval(() => {
-      if (api.canScrollNext()) {
-        api.scrollNext()
-      } else {
-        api.scrollTo(0)
-      }
-    }, 5000)
+      api.scrollNext()
+    }, 4500)
 
     return () => clearInterval(interval)
   }, [api])
 
   return (
-    <section id="reviews" className="border-t border-neutral-200 bg-white py-24">
+    <section id="reviews" className="overflow-hidden border-t border-neutral-200 bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-14 text-center">
           <div className="mb-4 flex items-center justify-center gap-4">
@@ -80,31 +74,34 @@ export function ReviewsCarousel({ reviews = GOOGLE_REVIEWS }: { reviews?: Google
             Real reviews from clients across the GTA. Consistent quality, every visit.
           </p>
         </div>
+      </div>
 
+      <div className="relative w-full">
         <Carousel
           setApi={setApi}
-          opts={{ align: "start", loop: true }}
-          className="mx-auto w-full max-w-6xl px-10 md:px-12"
+          opts={{ align: "start", loop: true, dragFree: true }}
+          className="w-full"
         >
-          <CarouselContent className="-ml-4">
+          <CarouselContent className="-ml-4 px-4 md:px-8">
             {reviews.map((review) => (
-              <CarouselItem key={review.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+              <CarouselItem
+                key={review.id}
+                className="basis-[85%] pl-4 sm:basis-[70%] md:basis-[45%] lg:basis-[32%]"
+              >
                 <ReviewCard review={review} />
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="border-neutral-300 bg-white text-black hover:bg-black hover:text-white" />
-          <CarouselNext className="border-neutral-300 bg-white text-black hover:bg-black hover:text-white" />
         </Carousel>
+      </div>
 
-        <div className="mt-12 text-center">
-          <Button
-            className="rounded-none bg-black px-8 py-6 font-semibold text-white hover:bg-neutral-800"
-            onClick={() => window.open(BOOKSY_URL, "_blank")}
-          >
-            Book Your Chair
-          </Button>
-        </div>
+      <div className="mx-auto mt-12 max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+        <Button
+          className="rounded-none bg-black px-8 py-6 font-semibold text-white hover:bg-neutral-800"
+          onClick={() => window.open(BOOKSY_URL, "_blank")}
+        >
+          Book Your Chair
+        </Button>
       </div>
     </section>
   )
