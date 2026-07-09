@@ -11,6 +11,7 @@ import {
 import { Clock, MapPin, Phone, Instagram, ArrowRight, Star } from "lucide-react"
 import { MobileBookBar } from "@/components/mobile-book-bar"
 import { ReviewsCarousel } from "@/components/reviews-carousel"
+import { GalleryCarousel } from "@/components/gallery-carousel"
 import {
   ADDONS,
   ADDRESS,
@@ -22,7 +23,6 @@ import {
   PHONE,
   PHONE_HREF,
   PILLARS,
-  PORTFOLIO,
   SERVICES,
   TIKTOK,
 } from "@/lib/site-data"
@@ -190,7 +190,7 @@ export default function Home() {
                   <img
                     src={service.image}
                     alt={`${service.name} — XclusivKutz`}
-                    className="h-full w-full object-cover object-center grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                    className="h-full w-full object-cover object-center md:grayscale md:transition-[filter] md:duration-500 md:group-hover:grayscale-0"
                   />
                 </div>
                 <CardContent className="p-6">
@@ -241,9 +241,9 @@ export default function Home() {
       </section>
 
       {/* Gallery */}
-      <section id="gallery" className="bg-black py-24 text-white">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <section id="gallery" className="overflow-hidden bg-black py-24 text-white">
+        <div className="mx-auto mb-12 max-w-7xl px-4 sm:px-6 md:mb-16 lg:px-8">
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="mb-2 text-xs font-medium uppercase tracking-[0.25em] text-neutral-500">
                 Portfolio
@@ -254,18 +254,8 @@ export default function Home() {
               Fades, tapers, lineups, and beard work — every cut finished with intention.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
-            {PORTFOLIO.map((src, idx) => (
-              <div key={idx} className="group relative aspect-[4/5] overflow-hidden">
-                <img
-                  src={src}
-                  alt={`XclusivKutz haircut ${idx + 1}`}
-                  className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
-                />
-              </div>
-            ))}
-          </div>
         </div>
+        <GalleryCarousel />
       </section>
 
       {/* Team / About */}
