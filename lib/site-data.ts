@@ -119,10 +119,15 @@ export const ADDONS = [
 ]
 
 export const PORTFOLIO = [
-  "/services/lineup.png",
-  "/portfolio/IMG_5571.png",
-  "/portfolio/IMG_5572.png",
-  "/portfolio/IMG_5573.png",
+  "/portfolio/client/IMG_0454.jpg",
+  "/portfolio/client/IMG_0455.jpg",
+  "/portfolio/client/IMG_0456.jpg",
+  "/portfolio/client/IMG_0457.jpg",
+  "/portfolio/client/IMG_0458.jpg",
+  "/portfolio/client/IMG_0459.jpg",
+  "/portfolio/client/IMG_0460.jpg",
+  "/portfolio/client/IMG_0461.jpg",
+  "/portfolio/client/IMG_0462.jpg",
 ]
 
 export const PILLARS = [

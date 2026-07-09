@@ -263,13 +263,13 @@ export default function Home() {
               Fades, tapers, lineups, and beard work — every cut finished with intention.
             </p>
           </div>
-          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:gap-4">
             {PORTFOLIO.map((src, idx) => (
-              <div key={idx} className="group relative aspect-square overflow-hidden">
+              <div key={idx} className="group relative aspect-[4/5] overflow-hidden">
                 <img
                   src={src}
-                  alt={`XclusivKutz portfolio ${idx + 1}`}
-                  className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-110 group-hover:grayscale-0"
+                  alt={`XclusivKutz haircut ${idx + 1}`}
+                  className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                 />
               </div>
             ))}
