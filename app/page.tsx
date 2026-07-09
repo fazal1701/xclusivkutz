@@ -128,7 +128,7 @@ export default function Home() {
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
           {[
             { label: "Google Rating", value: "5.0", icon: Star },
-            { label: "Years Experience", value: "10+", icon: null },
+            { label: "Years Experience", value: "3+", icon: null },
             { label: "Tailored Cuts", value: "100%", icon: null },
             { label: "Open Daily", value: "9–9", icon: Clock },
           ].map((stat) => (
@@ -301,7 +301,7 @@ export default function Home() {
                 <p className="text-sm uppercase tracking-widest text-neutral-500">Founder · Master Barber</p>
               </div>
               <p className="leading-relaxed text-neutral-600">
-                With over a decade behind the chair, Waleed built XclusivKutz on one principle: every client
+                With 3+ years behind the chair, Waleed built XclusivKutz on one principle: every client
                 deserves more than a quick cut. Consultation first, precision throughout, confidence when you
                 leave.
               </p>
