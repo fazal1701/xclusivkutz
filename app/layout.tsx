@@ -17,14 +17,14 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xclusivkutz.com"),
-  title: "XclusivKutz - Brampton's Premier Barbershop | Professional Fades & Cuts",
+  title: "XclusivKutz - GTA Finest Barber",
   description:
     "Experience precision cuts and modern style at XclusivKutz Barbershop in Brampton. Expert fades, beard trims, and luxury grooming services. Book online today.",
   keywords:
     "Brampton barber, fade haircut, beard trim, mens haircut, barbershop Brampton, skin fade, taper fade, hot towel shave, XclusivKutz",
   applicationName: "XclusivKutz",
   openGraph: {
-    title: "XclusivKutz - Brampton's Premier Barbershop",
+    title: "XclusivKutz - GTA Finest Barber",
     description:
       "Experience precision cuts and modern style at XclusivKutz Barbershop in Brampton. Expert fades, beard trims, and luxury grooming services.",
     url: "https://xclusivkutz.com",
