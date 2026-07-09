@@ -2,349 +2,246 @@
 
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { Clock, Star, MapPin, Phone, Instagram, Play } from "lucide-react"
-import { Dialog, DialogContent, DialogTrigger, DialogTitle } from "@/components/ui/dialog"
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
+import { Clock, MapPin, Phone, Instagram, ArrowRight, Star } from "lucide-react"
+import { MobileBookBar } from "@/components/mobile-book-bar"
+import { ReviewsCarousel } from "@/components/reviews-carousel"
+import {
+  ADDONS,
+  ADDRESS,
+  BOOKSY_URL,
+  FAQS,
+  HOURS,
+  INSTAGRAM,
+  NAV_LINKS,
+  PHONE,
+  PHONE_HREF,
+  PILLARS,
+  PORTFOLIO,
+  SERVICES,
+  TIKTOK,
+} from "@/lib/site-data"
 
 const CrownLogo = ({ className = "h-8 w-8" }: { className?: string }) => (
   <div className={`relative ${className}`}>
-    <svg viewBox="0 0 100 100" className="w-full h-full">
-      {/* Crown base */}
-      <rect x="20" y="75" width="60" height="8" fill="#3B82F6" />
-      <rect x="25" y="83" width="50" height="4" fill="#3B82F6" />
-
-      {/* Crown triangles */}
-      <polygon points="30,75 45,45 60,75" fill="#3B82F6" />
-      <polygon points="15,75 30,55 45,75" fill="#9CA3AF" />
-      <polygon points="55,75 70,55 85,75" fill="#9CA3AF" />
-
-      {/* Crown jewel */}
-      <circle cx="50" cy="35" r="6" fill="#9CA3AF" />
+    <svg viewBox="0 0 100 100" className="h-full w-full">
+      <rect x="20" y="75" width="60" height="8" fill="currentColor" className="text-white" />
+      <rect x="25" y="83" width="50" height="4" fill="currentColor" className="text-neutral-400" />
+      <polygon points="30,75 45,45 60,75" fill="currentColor" className="text-white" />
+      <polygon points="15,75 30,55 45,75" fill="currentColor" className="text-neutral-500" />
+      <polygon points="55,75 70,55 85,75" fill="currentColor" className="text-neutral-500" />
+      <circle cx="50" cy="35" r="6" fill="currentColor" className="text-neutral-400" />
     </svg>
   </div>
 )
 
-// Booksy booking URL provided by client
-const BOOKSY_URL = "http://xclusivkutz.booksy.com/a/"
+const bookNow = () => window.open(BOOKSY_URL, "_blank")
 
 export default function Home() {
-  const services = [
-    {
-      name: "Lineup",
-      price: "$25",
-      description: "Sharp edge-ups and precision detailing",
-      popular: true,
-      image: "/services/IMG_5574.png",
-    },
-    {
-      name: "Haircut",
-      price: "$40",
-      description: "Clean, precise cut tailored to your style",
-      popular: true,
-      image: "/services/IMG_5575.png",
-    },    {
-      name: "Haircut & Beard",
-      price: "$50",
-      description: "Full haircut with detailed beard sculpting",
-      popular: true,
-      image: "/services/IMG_5577.png",
-    },
-  ]
-
-  const testimonials = [
-    {
-      name: "Sarbpreet J",
-      text:
-        "Waleed is the kind of barber who instantly makes you feel at ease the moment you step into his chair. His welcoming attitude and respectful demeanor set him apart from the rest, creating an environment where you can relax and truly enjoy the experience. Whether it’s his warm greeting, attentive listening, or the genuine care he puts into every haircut, Waleed’s approach ensures you feel valued from start to finish. His positive attitude isn’t just about making you feel comfortable—it’s clear he takes pride in his craft, and that passion shines through in the way he treats every client.",
-      rating: 5,
-    },
-    {
-      name: "Izzy",
-      text:
-        "Waleedkutz is hands down the best barber in town! Waleed's attention to detail and precision is unmatched. Every visit is a great experience, and I always leave looking sharp and feeling confident. Highly recommend!",
-      rating: 5,
-    },
-    {
-      name: "pavitarsanghera",
-      text:
-        "My barber Waleed is one of one—best of the best. I had to get a cut for a party but he was all booked out; just for me he stayed overtime to make sure he gets me right. Bro’s not only a barber—he’s a therapist on the side. The conversations and advice I get from bro are top-tier. Underrated barber, highly recommend.",
-      rating: 5,
-    },
-  ]
-
-  const videos = [
-    {
-      title: "Signature Fade Transformation",
-      src: "/videos/IMG_4360.MOV",
-      description: "Watch Waleed create his signature fade technique",
-    },
-    {
-      title: "Beard Sculpting Masterclass",
-      src: "/videos/IMG_4612.MOV",
-      description: "Professional beard shaping and styling",
-    },
-    {
-      title: "Classic Taper Tutorial",
-      src: "/videos/IMG_4647.MOV",
-      description: "Step-by-step classic taper technique",
-    },
-    {
-      title: "Client Transformation",
-      src: "/videos/IMG_5554.MOV",
-      description: "Complete makeover with Waleed's expertise",
-    },
-  ]
-
-  const portfolioImages = [
-    "/services/lineup.png",
-    "/portfolio/IMG_5571.png",
-    "/portfolio/IMG_5572.png",
-    "/portfolio/IMG_5573.png",
-  ]
-
-  const addOns = [
-    { name: "Hot Towel", price: "$10", description: "Relaxing hot towel treatment with straight razor finish." },
-    { name: "Eyebrows", price: "$5", description: "Clean eyebrow shaping and detailing to sharpen your look and keep symmetry." },
-    { name: "Enhancements", price: "$5", description: "Natural enhancements for a sharper, longer-lasting look." },
-  ]
-
   return (
-    <div className="min-h-screen bg-white">
-      <nav className="fixed top-0 w-full bg-black backdrop-blur-sm z-50 border-b border-blue-600/20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-3">
-              <CrownLogo className="h-10 w-10" />
-              <div className="font-bold text-xl">
-                <span className="text-white">XCLU</span>
-                <span className="text-blue-500">SIV</span>
-                <br />
-                <span className="text-white text-sm tracking-wider">KUTZ</span>
-              </div>
+    <div className="min-h-screen bg-white pb-20 text-black md:pb-0">
+      {/* Header */}
+      <header className="fixed top-0 z-50 w-full border-b border-neutral-800 bg-black">
+        <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <a href="#home" className="flex items-center gap-3">
+            <CrownLogo className="h-9 w-9" />
+            <div className="font-bold leading-tight tracking-wide text-white">
+              <span className="text-lg">XCLUSIV</span>
+              <span className="block text-xs text-neutral-400">KUTZ</span>
             </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="#home" className="text-white hover:text-blue-400 transition-colors">
-                Home
+          </a>
+
+          <nav className="hidden items-center gap-6 lg:flex">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-sm font-medium text-neutral-300 transition-colors hover:text-white"
+              >
+                {link.label}
               </a>
-              <a href="#services" className="text-white hover:text-blue-400 transition-colors">
-                Services
-              </a>
-              <a href="#videos" className="text-white hover:text-blue-400 transition-colors">
-                Videos
-              </a>
-              <a href="#gallery" className="text-white hover:text-blue-400 transition-colors">
-                Gallery
-              </a>
-              <a href="#contact" className="text-white hover:text-blue-400 transition-colors">
-                Contact
-              </a>
-            </div>
-            <Button
-              className="bg-blue-600 hover:bg-blue-700 text-white"
-              onClick={() => window.open(BOOKSY_URL, "_blank")}
-            >
-              Book Now
-            </Button>
-          </div>
+            ))}
+          </nav>
+
+          <Button
+            className="rounded-none bg-white px-5 font-semibold text-black hover:bg-neutral-200"
+            onClick={bookNow}
+          >
+            Book Now
+          </Button>
         </div>
-      </nav>
+      </header>
 
-      {/* Hero Section */}
-      <section id="home" className="relative min-h-screen flex items-center bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left side - Text content */}
-            <div className="space-y-8">
-              <div>
-                <h1 className="text-6xl md:text-8xl font-black text-black leading-none mb-4">
-                  STAY
-                  <br />
-                  <span className="text-blue-600">XCLUSIV</span>
-                </h1>
-                <h2 className="text-2xl md:text-3xl font-bold text-blue-600 mb-6">PRECISION • STYLE • EXCELLENCE</h2>
-              </div>
-
-              <div className="space-y-4 text-black max-w-lg">
-                <p className="text-lg leading-relaxed">
-                  Master barber Waleed Adnan brings over a decade of precision craftsmanship to every cut. From
-                  signature fades to classic tapers, experience the artistry that has made XclusivKutz the premier
-                  destination for discerning gentlemen across the GTA.
-                </p>
-
-                <blockquote className="italic text-gray-700 border-l-4 border-blue-600 pl-4 my-6">
-                  "Every client deserves more than just a haircut - they deserve an experience that elevates their
-                  confidence and style. That's the XclusivKutz difference."
-                </blockquote>
-
-                <p className="text-right text-blue-600 font-bold">- WALEED ADNAN</p>
-              </div>
-
+      {/* Hero */}
+      <section id="home" className="flex min-h-screen items-center bg-white pt-16">
+        <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
+          <div className="space-y-8">
+            <p className="text-xs font-medium uppercase tracking-[0.3em] text-neutral-500">
+              Brampton · GTA Finest Barber
+            </p>
+            <h1 className="text-5xl font-black leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
+              Precision grooming,
+              <br />
+              done properly.
+            </h1>
+            <p className="max-w-lg text-lg leading-relaxed text-neutral-600">
+              Master barber Waleed Adnan delivers tailored fades, sharp lineups, and detailed beard work —
+              never rushed, always consistent.
+            </p>
+            <div className="flex flex-wrap gap-4">
               <Button
                 size="lg"
-                className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 text-lg font-bold"
+                className="rounded-none bg-black px-8 font-semibold text-white hover:bg-neutral-800"
+                onClick={bookNow}
+              >
+                Book Appointment
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="rounded-none border-black px-8 font-semibold text-black hover:bg-black hover:text-white"
                 onClick={() => document.getElementById("services")?.scrollIntoView({ behavior: "smooth" })}
               >
-                VIEW SERVICES
+                View Services
               </Button>
             </div>
+          </div>
 
-            {/* Right side - Image */}
-            <div className="relative">
-              <div className="relative z-10">
-                <img
-                  src="/portfolio/barber-portrait.png"
-                  alt="Waleed Adnan - Master Barber"
-                  className="w-full max-w-md mx-auto rounded-lg"
-                />
-              </div>
-              <div className="absolute top-0 right-0 w-32 h-32 opacity-20">
-                <div className="w-full h-full bg-gradient-to-br from-blue-600 to-transparent transform rotate-45"></div>
-              </div>
-              <div className="absolute bottom-10 left-10 w-24 h-1 bg-blue-600"></div>
-              <div className="absolute bottom-8 left-10 w-16 h-1 bg-blue-600"></div>
-              <div className="absolute bottom-6 left-10 w-20 h-1 bg-blue-600"></div>
-            </div>
+          <div className="relative">
+            <div className="absolute -inset-4 border border-neutral-200" />
+            <img
+              src="/portfolio/barber-portrait.png"
+              alt="Waleed Adnan - Master Barber at XclusivKutz"
+              className="relative z-10 w-full max-w-md grayscale"
+            />
           </div>
         </div>
       </section>
 
-      <section id="services" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Signature Services</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Crafted with precision, delivered with excellence. Each service reflects Waleed's commitment to
-              perfection.
-            </p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card
-                key={index}
-                className={`bg-white border-gray-200 hover:border-blue-600/50 transition-all duration-300 group relative overflow-hidden shadow-lg hover:shadow-xl`}
-              >
-                <div className="relative h-80 overflow-hidden">
-                  <img
-                    src={service.image || "/placeholder.svg"}
-                    alt={service.name}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-                    onError={(e) => {
-                      console.error(`Failed to load image: ${service.image}`);
-                      e.currentTarget.src = "/placeholder.svg";
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                </div>
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <h3 className="text-xl font-bold text-black group-hover:text-blue-600 transition-colors">
-                      {service.name}
-                    </h3>
-                    <span className="text-2xl font-bold text-blue-600">{service.price}</span>
-                  </div>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <Button
-                    className="w-full bg-blue-600 hover:bg-blue-700 text-white"
-                    onClick={() => window.open(BOOKSY_URL, "_blank")}
-                  >
-                    Book This Service
-                  </Button>
-                </CardContent>
-              </Card>
+      {/* Trust strip */}
+      <section className="border-y border-neutral-200 bg-neutral-950 py-10 text-white">
+        <div className="mx-auto grid max-w-7xl grid-cols-2 gap-8 px-4 sm:px-6 md:grid-cols-4 lg:px-8">
+          {[
+            { label: "Google Rating", value: "5.0", icon: Star },
+            { label: "Years Experience", value: "10+", icon: null },
+            { label: "Tailored Cuts", value: "100%", icon: null },
+            { label: "Open Daily", value: "9–9", icon: Clock },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <p className="mb-1 flex items-center justify-center gap-1 text-3xl font-bold md:text-4xl">
+                {stat.value}
+                {stat.icon && <Star className="h-5 w-5 fill-amber-400 text-amber-400" />}
+              </p>
+              <p className="text-xs uppercase tracking-widest text-neutral-400">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Why choose us */}
+      <section className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <blockquote className="mx-auto mb-20 max-w-3xl text-center text-xl font-medium leading-relaxed text-neutral-700 md:text-2xl">
+            &ldquo;A great cut is more than a service. It&apos;s attention, trust, and the confidence you carry out the door.&rdquo;
+          </blockquote>
+          <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
+            {PILLARS.map((pillar) => (
+              <div key={pillar.number} className="border-t border-black pt-6">
+                <p className="mb-3 text-xs font-medium uppercase tracking-widest text-neutral-400">
+                  {pillar.number}
+                </p>
+                <h3 className="mb-4 text-2xl font-bold">{pillar.title}</h3>
+                <p className="text-neutral-600 leading-relaxed">{pillar.description}</p>
+              </div>
             ))}
           </div>
-          <div className="mt-12">
-            <h3 className="text-2xl font-bold mb-6 text-black">Add-ons</h3>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              {addOns.map((addon) => (
-                <Card key={addon.name} className="bg-white border-gray-200 hover:border-blue-600/40 transition-all duration-300 shadow h-full">
-                  <CardContent className="p-5 flex flex-col h-full">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="text-lg font-semibold text-black">{addon.name}</h4>
-                      <span className="text-blue-600 font-bold">{addon.price}</span>
-                    </div>
-                    <p className="text-gray-600 mb-6">{addon.description}</p>
-                    <Button className="mt-auto w-full bg-blue-600 hover:bg-blue-700 text-white" onClick={() => window.open(BOOKSY_URL, "_blank")}>
-                      Book This Service
-                    </Button>
-                  </CardContent>
-                </Card>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section id="services" className="border-t border-neutral-200 bg-neutral-50 py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="mb-2 text-xs font-medium uppercase tracking-[0.25em] text-neutral-500">
+                What We Do
+              </p>
+              <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+                Transparent pricing, premium quality.
+              </h2>
+            </div>
+            <p className="max-w-sm text-neutral-600">
+              Every service includes a consultation, expert execution, and a finish built around your look.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {SERVICES.map((service, index) => (
+              <div
+                key={service.name}
+                className="group grid grid-cols-1 items-center gap-6 border border-neutral-200 bg-white p-6 transition-colors hover:border-black md:grid-cols-[auto_1fr_auto_auto_auto]"
+              >
+                <span className="hidden text-sm font-medium text-neutral-400 md:block">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <h3 className="text-xl font-bold">{service.name}</h3>
+                  <p className="mt-1 text-sm text-neutral-600">{service.description}</p>
+                </div>
+                <span className="text-sm font-medium uppercase tracking-wider text-neutral-500">
+                  {service.duration}
+                </span>
+                <span className="text-2xl font-bold">{service.price}</span>
+                <Button
+                  className="rounded-none bg-black text-white hover:bg-neutral-800"
+                  onClick={bookNow}
+                >
+                  Book
+                </Button>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16">
+            <h3 className="mb-6 text-2xl font-bold">Add-ons</h3>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+              {ADDONS.map((addon) => (
+                <div
+                  key={addon.name}
+                  className="flex flex-col border border-neutral-200 bg-white p-6 transition-colors hover:border-black"
+                >
+                  <div className="mb-2 flex items-center justify-between">
+                    <h4 className="font-semibold">{addon.name}</h4>
+                    <span className="font-bold">{addon.price}</span>
+                  </div>
+                  <p className="mb-6 flex-1 text-sm text-neutral-600">{addon.description}</p>
+                  <Button
+                    variant="outline"
+                    className="rounded-none border-black text-black hover:bg-black hover:text-white"
+                    onClick={bookNow}
+                  >
+                    Book Add-on
+                  </Button>
+                </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
 
-      <section id="videos" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Artist Work</h2>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {videos.map((video, index) => (
-              <Dialog key={index}>
-                <DialogTrigger asChild>
-                  <Card className="cursor-pointer bg-white border-gray-200 hover:border-blue-600/50 transition-all duration-300 group overflow-hidden shadow-lg hover:shadow-xl">
-                    <div className="relative">
-                      <video src={video.src} playsInline muted className="w-full h-96 object-cover" />
-                      <div className="absolute inset-0 pointer-events-none bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
-                        <div className="bg-blue-600 rounded-full p-4 opacity-80">
-                          <Play className="h-8 w-8 text-white fill-current" />
-                        </div>
-                      </div>
-                    </div>
-                  </Card>
-                </DialogTrigger>
-                <DialogContent className="p-0 max-w-4xl">
-                  <DialogTitle className="sr-only">{video.title}</DialogTitle>
-                  <video src={video.src} controls autoPlay playsInline className="w-full h-auto max-h-[80vh]" />
-                </DialogContent>
-              </Dialog>
-            ))}
-          </div>
-          {/* Removed Instagram and TikTok buttons on main screen per request */}
-        </div>
-      </section>
-
-      <section id="gallery" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Waleed's Portfolio</h2>
-            <p className="text-xl text-gray-600">Witness the artistry and precision in every cut</p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-            {portfolioImages.slice(0, 4).map((src, idx) => (
-              <div key={idx} className="relative group overflow-hidden rounded-lg aspect-square shadow-lg">
-                <img
-                  src={src}
-                  alt={`Waleed's Work ${idx + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Client Testimonials</h2>
-            <p className="text-xl text-gray-600">What gentlemen say about Waleed's work</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <Card
-                key={index}
-                className="bg-white border-gray-200 hover:border-blue-600/30 transition-colors shadow-lg"
-              >
-                <CardContent className="p-6">
-                  <div className="flex mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
-                  <p className="font-bold text-blue-600">— {testimonial.name}</p>
+          {/* Service cards with images - mobile visual */}
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3 lg:hidden">
+            {SERVICES.map((service) => (
+              <Card key={service.name} className="overflow-hidden rounded-none border-neutral-200 shadow-none">
+                <div className="h-48 overflow-hidden">
+                  <img src={service.image} alt={service.name} className="h-full w-full object-cover grayscale" />
+                </div>
+                <CardContent className="p-4">
+                  <h4 className="font-bold">{service.name}</h4>
+                  <p className="text-sm text-neutral-600">{service.price}</p>
                 </CardContent>
               </Card>
             ))}
@@ -352,96 +249,218 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="contact" className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-black">Book with Waleed</h2>
-            <p className="text-xl text-gray-600">Ready for your transformation? Secure your appointment today.</p>
+      {/* Gallery */}
+      <section id="gallery" className="bg-black py-24 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <p className="mb-2 text-xs font-medium uppercase tracking-[0.25em] text-neutral-500">
+                Portfolio
+              </p>
+              <h2 className="text-4xl font-bold tracking-tight md:text-5xl">The craft, up close.</h2>
+            </div>
+            <p className="max-w-sm text-neutral-400">
+              Fades, tapers, lineups, and beard work — every cut finished with intention.
+            </p>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div className="flex items-center space-x-4">
-                <MapPin className="h-8 w-8 text-blue-600" />
-                <div>
-                  <h3 className="text-xl font-bold text-black">Location</h3>
-                  <p className="text-gray-600">32 Bowsfield Dr</p>
-                </div>
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+            {PORTFOLIO.map((src, idx) => (
+              <div key={idx} className="group relative aspect-square overflow-hidden">
+                <img
+                  src={src}
+                  alt={`XclusivKutz portfolio ${idx + 1}`}
+                  className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-110 group-hover:grayscale-0"
+                />
               </div>
-              <div className="flex items-center space-x-4">
-                <Phone className="h-8 w-8 text-blue-600" />
-                <div>
-                  <h3 className="text-xl font-bold text-black">Direct Line</h3>
-                  <a
-                    href="tel:+14372672529"
-                    className="text-blue-600 hover:text-blue-700 transition-colors text-lg font-semibold"
-                  >
-                    (437) 267-2529
-                  </a>
-                </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Team / About */}
+      <section id="about" className="border-t border-neutral-200 bg-white py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-16 text-center">
+            <p className="mb-2 text-xs font-medium uppercase tracking-[0.25em] text-neutral-500">
+              The Hands Behind the Craft
+            </p>
+            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">Meet Waleed.</h2>
+          </div>
+          <div className="mx-auto grid max-w-4xl grid-cols-1 items-center gap-12 md:grid-cols-2">
+            <div className="relative">
+              <div className="absolute -inset-3 border border-neutral-200" />
+              <img
+                src="/portfolio/barber-portrait.png"
+                alt="Waleed Adnan"
+                className="relative w-full grayscale"
+              />
+            </div>
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-2xl font-bold">Waleed Adnan</h3>
+                <p className="text-sm uppercase tracking-widest text-neutral-500">Founder · Master Barber</p>
               </div>
-              <div className="flex items-center space-x-4">
-                <Clock className="h-8 w-8 text-blue-600" />
-                <div>
-                  <h3 className="text-xl font-bold text-black">Waleed's Hours</h3>
-                  <p className="text-gray-600">9AM - 9PM</p>
+              <p className="leading-relaxed text-neutral-600">
+                With over a decade behind the chair, Waleed built XclusivKutz on one principle: every client
+                deserves more than a quick cut. Consultation first, precision throughout, confidence when you
+                leave.
+              </p>
+              <p className="leading-relaxed text-neutral-600">
+                Known across the GTA for clean fades, sharp scissor work, and detailed beard sculpting — Waleed
+                treats every head of hair as its own brief.
+              </p>
+              <Button
+                className="rounded-none bg-black px-8 font-semibold text-white hover:bg-neutral-800"
+                onClick={bookNow}
+              >
+                Book with Waleed
+              </Button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews */}
+      <ReviewsCarousel />
+
+      {/* FAQ */}
+      <section id="faq" className="border-t border-neutral-200 bg-neutral-50 py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-12 text-center">
+            <p className="mb-2 text-xs font-medium uppercase tracking-[0.25em] text-neutral-500">FAQ</p>
+            <h2 className="text-4xl font-bold tracking-tight md:text-5xl">
+              Straight answers before you book.
+            </h2>
+          </div>
+          <Accordion type="single" collapsible className="w-full">
+            {FAQS.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border-neutral-300">
+                <AccordionTrigger className="text-left font-semibold hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-neutral-600">{faq.answer}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section id="contact" className="bg-white py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-2">
+            <div>
+              <p className="mb-2 text-xs font-medium uppercase tracking-[0.25em] text-neutral-500">
+                Visit Us
+              </p>
+              <h2 className="mb-8 text-4xl font-bold tracking-tight md:text-5xl">Your chair is waiting.</h2>
+              <div className="space-y-8">
+                <div className="flex items-start gap-4">
+                  <MapPin className="mt-1 h-5 w-5 shrink-0" />
+                  <div>
+                    <h3 className="font-semibold">Location</h3>
+                    <p className="text-neutral-600">{ADDRESS}</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Phone className="mt-1 h-5 w-5 shrink-0" />
+                  <div>
+                    <h3 className="font-semibold">Phone</h3>
+                    <a href={PHONE_HREF} className="text-neutral-600 transition-colors hover:text-black">
+                      {PHONE}
+                    </a>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <Clock className="mt-1 h-5 w-5 shrink-0" />
+                  <div>
+                    <h3 className="font-semibold">Hours</h3>
+                    <p className="text-neutral-600">{HOURS}</p>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="bg-blue-50 p-8 rounded-lg border border-blue-200">
-              <h3 className="text-2xl font-bold mb-6 text-center text-black">Book Your Appointment</h3>
-              <div className="space-y-4">
+
+            <div className="border border-neutral-200 bg-neutral-50 p-8">
+              <h3 className="mb-6 text-xl font-bold">Book Your Appointment</h3>
+              <div className="space-y-3">
                 <Button
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white py-4 text-lg font-semibold"
-                  onClick={() => window.open(BOOKSY_URL, "_blank")}
+                  className="w-full rounded-none bg-black py-6 text-base font-semibold text-white hover:bg-neutral-800"
+                  onClick={bookNow}
                 >
                   Book on Booksy
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-4 text-lg bg-white"
-                  onClick={() => (window.location.href = "tel:+14372672529")}
+                  className="w-full rounded-none border-black py-6 text-base text-black hover:bg-black hover:text-white"
+                  onClick={() => (window.location.href = PHONE_HREF)}
                 >
-                  Call (437) 267-2529
+                  Call {PHONE}
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-4 text-lg bg-white flex items-center justify-center space-x-2"
-                  onClick={() => window.open("https://www.instagram.com/_xclusivkutz/", "_blank")}
+                  className="w-full rounded-none border-neutral-300 py-6 text-base text-black hover:border-black hover:bg-black hover:text-white"
+                  onClick={() => window.open(INSTAGRAM, "_blank")}
                 >
-                  <Instagram className="h-5 w-5" />
-                  <span>Check Instagram</span>
+                  <Instagram className="mr-2 h-4 w-4" />
+                  Instagram @_xclusivkutz
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white py-4 text-lg bg-white flex items-center justify-center"
-                  onClick={() => window.open("https://www.tiktok.com/@_xclusivkutz", "_blank")}
+                  className="w-full rounded-none border-neutral-300 py-6 text-base text-black hover:border-black hover:bg-black hover:text-white"
+                  onClick={() => window.open(TIKTOK, "_blank")}
                 >
                   TikTok @_xclusivkutz
                 </Button>
               </div>
-              <p className="text-center text-gray-600 text-sm mt-4">
-                Book in advance - Waleed's schedule fills up quickly
-              </p>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="bg-black border-t border-blue-600/20 py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-3 mb-4 md:mb-0">
-              <CrownLogo className="h-8 w-8" />
-              <div className="font-bold text-lg">
-                <span className="text-white">XCLU</span>
-                <span className="text-blue-500">SIV</span>
-                <span className="text-white"> KUTZ</span>
-              </div>
+      {/* Final CTA */}
+      <section className="bg-black py-20 text-white">
+        <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold tracking-tight md:text-5xl">Ready for your best cut yet?</h2>
+          <p className="mx-auto mt-4 max-w-lg text-neutral-400">
+            Book online in seconds. No rushed cuts — just proper work, done right.
+          </p>
+          <Button
+            size="lg"
+            className="mt-8 rounded-none bg-white px-10 py-6 text-base font-semibold text-black hover:bg-neutral-200"
+            onClick={bookNow}
+          >
+            Book Appointment
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-neutral-800 bg-black py-12 text-white">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center justify-between gap-8 md:flex-row">
+            <div className="flex items-center gap-3">
+              <CrownLogo className="h-7 w-7" />
+              <span className="font-bold tracking-wide">XCLUSIV KUTZ</span>
             </div>
-            <p className="text-gray-400">© 2025 XclusivKutz - Waleed Adnan, Master Barber. All rights reserved.</p>
+            <nav className="flex flex-wrap justify-center gap-6">
+              {NAV_LINKS.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm text-neutral-400 transition-colors hover:text-white"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+            <p className="text-sm text-neutral-500">© 2025 XclusivKutz — Waleed Adnan</p>
           </div>
         </div>
       </footer>
+
+      <MobileBookBar />
     </div>
   )
 }

@@ -17,16 +17,16 @@ const openSans = Open_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://xclusivkutz.com"),
-  title: "XclusivKutz - GTA Finest Barber",
+  title: "XclusivKutz — GTA Finest Barber | Book Online",
   description:
-    "Experience precision cuts and modern style at XclusivKutz Barbershop in Brampton. Expert fades, beard trims, and luxury grooming services. Book online today.",
+    "Premium men's grooming in Brampton. Expert fades, lineups, and beard work by master barber Waleed Adnan. Book your appointment at XclusivKutz today.",
   keywords:
-    "Brampton barber, fade haircut, beard trim, mens haircut, barbershop Brampton, skin fade, taper fade, hot towel shave, XclusivKutz",
+    "Brampton barber, GTA barber, fade haircut, beard trim, mens haircut, skin fade, XclusivKutz, Waleed Adnan, Bowsfield Dr barber",
   applicationName: "XclusivKutz",
   openGraph: {
-    title: "XclusivKutz - GTA Finest Barber",
+    title: "XclusivKutz — GTA Finest Barber",
     description:
-      "Experience precision cuts and modern style at XclusivKutz Barbershop in Brampton. Expert fades, beard trims, and luxury grooming services.",
+      "Premium men's grooming in Brampton. Expert fades, lineups, and beard work. Book online today.",
     url: "https://xclusivkutz.com",
     siteName: "XclusivKutz",
     locale: "en_CA",
