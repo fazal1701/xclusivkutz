@@ -180,30 +180,36 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-4">
-            {SERVICES.map((service, index) => (
-              <div
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+            {SERVICES.map((service) => (
+              <Card
                 key={service.name}
-                className="group grid grid-cols-1 items-center gap-6 border border-neutral-200 bg-white p-6 transition-colors hover:border-black md:grid-cols-[auto_1fr_auto_auto_auto]"
+                className="group overflow-hidden rounded-none border-neutral-200 bg-white shadow-none transition-colors hover:border-black"
               >
-                <span className="hidden text-sm font-medium text-neutral-400 md:block">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <div>
-                  <h3 className="text-xl font-bold">{service.name}</h3>
-                  <p className="mt-1 text-sm text-neutral-600">{service.description}</p>
+                <div className="relative h-64 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={`${service.name} — XclusivKutz`}
+                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                  />
                 </div>
-                <span className="text-sm font-medium uppercase tracking-wider text-neutral-500">
-                  {service.duration}
-                </span>
-                <span className="text-2xl font-bold">{service.price}</span>
-                <Button
-                  className="rounded-none bg-black text-white hover:bg-neutral-800"
-                  onClick={bookNow}
-                >
-                  Book
-                </Button>
-              </div>
+                <CardContent className="p-6">
+                  <div className="mb-3 flex items-start justify-between gap-4">
+                    <h3 className="text-xl font-bold">{service.name}</h3>
+                    <span className="text-xl font-bold">{service.price}</span>
+                  </div>
+                  <p className="mb-4 text-sm text-neutral-600">{service.description}</p>
+                  <p className="mb-6 text-xs font-medium uppercase tracking-wider text-neutral-500">
+                    {service.duration}
+                  </p>
+                  <Button
+                    className="w-full rounded-none bg-black text-white hover:bg-neutral-800"
+                    onClick={bookNow}
+                  >
+                    Book {service.name}
+                  </Button>
+                </CardContent>
+              </Card>
             ))}
           </div>
 
@@ -230,21 +236,6 @@ export default function Home() {
                 </div>
               ))}
             </div>
-          </div>
-
-          {/* Service cards with images - mobile visual */}
-          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3 lg:hidden">
-            {SERVICES.map((service) => (
-              <Card key={service.name} className="overflow-hidden rounded-none border-neutral-200 shadow-none">
-                <div className="h-48 overflow-hidden">
-                  <img src={service.image} alt={service.name} className="h-full w-full object-cover grayscale" />
-                </div>
-                <CardContent className="p-4">
-                  <h4 className="font-bold">{service.name}</h4>
-                  <p className="text-sm text-neutral-600">{service.price}</p>
-                </CardContent>
-              </Card>
-            ))}
           </div>
         </div>
       </section>

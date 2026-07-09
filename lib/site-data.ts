@@ -94,21 +94,21 @@ export const SERVICES = [
     price: "$25",
     duration: "30 MIN",
     description: "Sharp edge-ups and precision detailing for a clean, defined look.",
-    image: "/services/IMG_5574.png",
+    image: "/services/lineup.jpg",
   },
   {
     name: "Haircut",
     price: "$40",
     duration: "50 MIN",
     description: "Fades, tapers, and scissor cuts tailored to your style and hair type.",
-    image: "/services/IMG_5575.png",
+    image: "/services/haircut.jpg",
   },
   {
     name: "Haircut & Beard",
     price: "$50",
     duration: "1 HR 5 MIN",
     description: "Complete grooming — precision cut and detailed beard sculpting.",
-    image: "/services/IMG_5577.png",
+    image: "/services/haircut-beard.jpg",
   },
 ]
 
