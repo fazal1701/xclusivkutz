@@ -90,8 +90,8 @@ export default function Home() {
               done properly.
             </h1>
             <p className="max-w-lg text-lg leading-relaxed text-neutral-600">
-              Master barber Waleed Adnan delivers tailored fades, sharp lineups, and detailed beard work —
-              never rushed, always consistent.
+              Master barber Waleed Adnan delivers tailored fades, sharp lineups, and detailed beard work.
+              Never rushed, always consistent.
             </p>
             <div className="flex flex-wrap gap-4">
               <Button
@@ -112,13 +112,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="absolute -inset-4 border border-neutral-200" />
-            <img
-              src="/portfolio/barber-portrait.png"
-              alt="Waleed Adnan - Master Barber at XclusivKutz"
-              className="relative z-10 w-full max-w-md grayscale"
-            />
+          <div className="relative w-full max-w-lg lg:max-w-none">
+            <div className="relative aspect-[4/5] w-full overflow-hidden border border-neutral-200">
+              <img
+                src="/portfolio/barber-portrait.png"
+                alt="Waleed Adnan, Master Barber at XclusivKutz"
+                className="h-full w-full object-cover object-center grayscale"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -189,7 +190,7 @@ export default function Home() {
                 <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
                   <img
                     src={service.image}
-                    alt={`${service.name} — XclusivKutz`}
+                    alt={`${service.name} at XclusivKutz`}
                     className="h-full w-full object-cover object-center md:grayscale md:transition-[filter] md:duration-500 md:group-hover:grayscale-0"
                   />
                 </div>
@@ -251,7 +252,7 @@ export default function Home() {
               <h2 className="text-4xl font-bold tracking-tight md:text-5xl">The craft, up close.</h2>
             </div>
             <p className="max-w-sm text-neutral-400">
-              Fades, tapers, lineups, and beard work — every cut finished with intention.
+              Fades, tapers, lineups, and beard work. Every cut finished with intention.
             </p>
           </div>
         </div>
@@ -268,13 +269,14 @@ export default function Home() {
             <h2 className="text-4xl font-bold tracking-tight md:text-5xl">Meet Waleed.</h2>
           </div>
           <div className="mx-auto grid max-w-4xl grid-cols-1 items-center gap-12 md:grid-cols-2">
-            <div className="relative">
-              <div className="absolute -inset-3 border border-neutral-200" />
-              <img
-                src="/portfolio/barber-portrait.png"
-                alt="Waleed Adnan"
-                className="relative w-full grayscale"
-              />
+            <div className="relative w-full overflow-hidden border border-neutral-200">
+              <div className="relative aspect-[4/5] w-full">
+                <img
+                  src="/portfolio/barber-portrait.png"
+                  alt="Waleed Adnan"
+                  className="h-full w-full object-cover object-center grayscale"
+                />
+              </div>
             </div>
             <div className="space-y-6">
               <div>
@@ -287,8 +289,8 @@ export default function Home() {
                 leave.
               </p>
               <p className="leading-relaxed text-neutral-600">
-                Known across the GTA for clean fades, sharp scissor work, and detailed beard sculpting — Waleed
-                treats every head of hair as its own brief.
+                Known across the GTA for clean fades, sharp scissor work, and detailed beard sculpting.
+                Waleed treats every head of hair as its own brief.
               </p>
               <Button
                 className="rounded-none bg-black px-8 font-semibold text-white hover:bg-neutral-800"
@@ -405,7 +407,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold tracking-tight md:text-5xl">Ready for your best cut yet?</h2>
           <p className="mx-auto mt-4 max-w-lg text-neutral-400">
-            Book online in seconds. No rushed cuts — just proper work, done right.
+            Book online in seconds. No rushed cuts, just proper work done right.
           </p>
           <Button
             size="lg"
@@ -436,7 +438,7 @@ export default function Home() {
                 </a>
               ))}
             </nav>
-            <p className="text-sm text-neutral-500">© 2025 XclusivKutz — Waleed Adnan</p>
+            <p className="text-sm text-neutral-500">© 2025 XclusivKutz · Waleed Adnan</p>
           </div>
         </div>
       </footer>

@@ -107,7 +107,7 @@ export const SERVICES = [
     name: "Haircut & Beard",
     price: "$50",
     duration: "1 HR 5 MIN",
-    description: "Complete grooming — precision cut and detailed beard sculpting.",
+    description: "Complete grooming with a precision cut and detailed beard sculpting.",
     image: "/services/haircut-beard.jpg",
   },
 ]
@@ -135,7 +135,7 @@ export const PILLARS = [
     number: "01",
     title: "Craft",
     description:
-      "Precision cutting built around your hair texture, growth pattern, and lifestyle — never a one-size-fits-all approach.",
+      "Precision cutting built around your hair texture, growth pattern, and lifestyle. Never a one-size-fits-all approach.",
   },
   {
     number: "02",
@@ -155,7 +155,7 @@ export const FAQS = [
   {
     question: "How do I book an appointment?",
     answer:
-      "Book online through Booksy — it's the fastest way to secure your spot. Walk-ins may be accepted when available, but booking ahead is recommended.",
+      "Book online through Booksy. It's the fastest way to secure your spot. Walk-ins may be accepted when available, but booking ahead is recommended.",
   },
   {
     question: "What are your hours?",
