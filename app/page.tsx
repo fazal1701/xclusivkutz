@@ -24,8 +24,7 @@ const CrownLogo = ({ className = "h-8 w-8" }: { className?: string }) => (
 )
 
 // Booksy booking URL provided by client
-const BOOKSY_URL =
-  "https://booksy.com/en-ca/17786_elevate-grooming-studio_barbershop_861853_brampton#ba_s=seo"
+const BOOKSY_URL = "http://xclusivkutz.booksy.com/a/"
 
 export default function Home() {
   const services = [
@@ -365,7 +364,7 @@ export default function Home() {
                 <MapPin className="h-8 w-8 text-blue-600" />
                 <div>
                   <h3 className="text-xl font-bold text-black">Location</h3>
-                  <p className="text-gray-600">146 Inspire Blvd Unit #2, Brampton, ON L6R 3X9</p>
+                  <p className="text-gray-600">32 Bowsfield Dr</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
@@ -384,8 +383,7 @@ export default function Home() {
                 <Clock className="h-8 w-8 text-blue-600" />
                 <div>
                   <h3 className="text-xl font-bold text-black">Waleed's Hours</h3>
-                  <p className="text-gray-600">Tue-Sat: 10AM-7PM | Sun: 11AM-5PM</p>
-                  <p className="text-gray-600 text-sm">Closed Mondays</p>
+                  <p className="text-gray-600">9AM - 9PM</p>
                 </div>
               </div>
             </div>
