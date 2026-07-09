@@ -82,7 +82,7 @@ export default function Home() {
         <div className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:px-8">
           <div className="space-y-8">
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-neutral-500">
-              Brampton · GTA Finest Barber
+              GTA Finest Barber
             </p>
             <h1 className="text-5xl font-black leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
               Precision grooming,
@@ -186,11 +186,11 @@ export default function Home() {
                 key={service.name}
                 className="group overflow-hidden rounded-none border-neutral-200 bg-white shadow-none transition-colors hover:border-black"
               >
-                <div className="relative h-64 overflow-hidden">
+                <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
                   <img
                     src={service.image}
                     alt={`${service.name} — XclusivKutz`}
-                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
+                    className="h-full w-full object-cover object-center grayscale transition-all duration-500 group-hover:scale-105 group-hover:grayscale-0"
                   />
                 </div>
                 <CardContent className="p-6">

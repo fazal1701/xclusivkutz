@@ -1,7 +1,7 @@
 export const BOOKSY_URL = "http://xclusivkutz.booksy.com/a/"
 export const PHONE = "(437) 267-2529"
 export const PHONE_HREF = "tel:+14372672529"
-export const ADDRESS = "32 Bowsfield Dr, Brampton, ON"
+export const ADDRESS = "32 Bowsfield Dr, ON"
 export const HOURS = "9AM – 9PM Daily"
 export const INSTAGRAM = "https://www.instagram.com/_xclusivkutz/"
 export const TIKTOK = "https://www.tiktok.com/@_xclusivkutz"
@@ -163,7 +163,7 @@ export const FAQS = [
   },
   {
     question: "Where are you located?",
-    answer: "32 Bowsfield Dr, Brampton, ON. Easy to find with parking nearby.",
+    answer: "32 Bowsfield Dr, ON. Easy to find with parking nearby.",
   },
   {
     question: "What services do you offer?",

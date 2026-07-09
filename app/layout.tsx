@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://xclusivkutz.com"),
   title: "XclusivKutz — GTA Finest Barber | Book Online",
   description:
-    "Premium men's grooming in Brampton. Expert fades, lineups, and beard work by master barber Waleed Adnan. Book your appointment at XclusivKutz today.",
+    "Premium men's grooming in the GTA. Expert fades, lineups, and beard work by master barber Waleed Adnan. Book your appointment at XclusivKutz today.",
   keywords:
-    "Brampton barber, GTA barber, fade haircut, beard trim, mens haircut, skin fade, XclusivKutz, Waleed Adnan, Bowsfield Dr barber",
+    "GTA barber, fade haircut, beard trim, mens haircut, skin fade, XclusivKutz, Waleed Adnan, Bowsfield Dr barber",
   applicationName: "XclusivKutz",
   openGraph: {
     title: "XclusivKutz — GTA Finest Barber",
     description:
-      "Premium men's grooming in Brampton. Expert fades, lineups, and beard work. Book online today.",
+      "Premium men's grooming in the GTA. Expert fades, lineups, and beard work. Book online today.",
     url: "https://xclusivkutz.com",
     siteName: "XclusivKutz",
     locale: "en_CA",
