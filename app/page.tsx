@@ -167,13 +167,13 @@ export default function Home() {
               <div className="space-y-4 text-black max-w-lg">
                 <p className="text-lg leading-relaxed">
                   Master barber Waleed Adnan brings over a decade of precision craftsmanship to every cut. From
-                  signature fades to classic tapers, experience the artistry that has made XclusivCutz the premier
+                  signature fades to classic tapers, experience the artistry that has made XclusivKutz the premier
                   destination for discerning gentlemen across the GTA.
                 </p>
 
                 <blockquote className="italic text-gray-700 border-l-4 border-blue-600 pl-4 my-6">
                   "Every client deserves more than just a haircut - they deserve an experience that elevates their
-                  confidence and style. That's the XclusivCutz difference."
+                  confidence and style. That's the XclusivKutz difference."
                 </blockquote>
 
                 <p className="text-right text-blue-600 font-bold">- WALEED ADNAN</p>
@@ -440,7 +440,7 @@ export default function Home() {
                 <span className="text-white"> KUTZ</span>
               </div>
             </div>
-            <p className="text-gray-400">© 2025 XclusivCutz - Waleed Adnan, Master Barber. All rights reserved.</p>
+            <p className="text-gray-400">© 2025 XclusivKutz - Waleed Adnan, Master Barber. All rights reserved.</p>
           </div>
         </div>
       </footer>
