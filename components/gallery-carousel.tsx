@@ -34,11 +34,11 @@ export function GalleryCarousel() {
         <CarouselContent className="ml-0 md:-ml-4">
           {PORTFOLIO.map((src, idx) => (
             <CarouselItem key={idx} className="basis-full pl-0 md:basis-1/3 md:pl-4">
-              <div className="aspect-[4/5] w-full overflow-hidden md:group">
+              <div className="aspect-[4/5] w-full overflow-hidden">
                 <img
                   src={src}
                   alt={`XclusivKutz haircut ${idx + 1}`}
-                  className="h-full w-full object-cover object-center md:grayscale md:transition-[filter] md:duration-500 md:group-hover:grayscale-0"
+                  className="site-photo h-full w-full object-cover object-center"
                   draggable={false}
                 />
               </div>

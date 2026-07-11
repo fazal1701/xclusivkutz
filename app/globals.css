@@ -89,6 +89,23 @@
   }
 }
 
+@layer components {
+  .site-photo {
+    @apply grayscale select-none;
+    -webkit-tap-highlight-color: transparent;
+    transform: none;
+    transition: none;
+    filter: grayscale(100%);
+  }
+
+  .site-photo:hover,
+  .site-photo:active,
+  .site-photo:focus {
+    transform: none;
+    filter: grayscale(100%);
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;

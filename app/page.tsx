@@ -117,7 +117,7 @@ export default function Home() {
               <img
                 src="/portfolio/barber-portrait.png"
                 alt="Waleed Adnan, Master Barber at XclusivKutz"
-                className="h-full w-full object-cover object-center grayscale"
+                className="site-photo h-full w-full object-cover object-center"
               />
             </div>
           </div>
@@ -185,13 +185,13 @@ export default function Home() {
             {SERVICES.map((service) => (
               <Card
                 key={service.name}
-                className="group overflow-hidden rounded-none border-neutral-200 bg-white shadow-none transition-colors hover:border-black"
+                className="overflow-hidden rounded-none border-neutral-200 bg-white shadow-none transition-colors hover:border-black"
               >
                 <div className="relative aspect-[4/5] overflow-hidden bg-neutral-100">
                   <img
                     src={service.image}
                     alt={`${service.name} at XclusivKutz`}
-                    className="h-full w-full object-cover object-center md:grayscale md:transition-[filter] md:duration-500 md:group-hover:grayscale-0"
+                    className="site-photo h-full w-full object-cover object-center"
                   />
                 </div>
                 <CardContent className="p-6">
@@ -274,7 +274,7 @@ export default function Home() {
                 <img
                   src="/portfolio/barber-portrait.png"
                   alt="Waleed Adnan"
-                  className="h-full w-full object-cover object-center grayscale"
+                  className="site-photo h-full w-full object-cover object-center"
                 />
               </div>
             </div>
